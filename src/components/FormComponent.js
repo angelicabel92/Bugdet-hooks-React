@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ErrorComponent from './ErrorComponent';
 import shortid from 'shortid';
 
-const FormComponent = ({setExpenses}) => {
+const FormComponent = ({setExpense, setCreateBugdet}) => {
     const initialState = {
         nombre: '',
         gasto: 0
@@ -24,7 +24,7 @@ const FormComponent = ({setExpenses}) => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        if( budgetForm.nombre < 1 || isNaN(budgetForm.nombre) || budgetForm.gasto === '' ) {
+        if (budgetForm.gasto < 1 || isNaN(budgetForm.gasto) || budgetForm.nombre === '') {
             setError(true);
             return;
         }
@@ -35,9 +35,10 @@ const FormComponent = ({setExpenses}) => {
             id: shortid.generate()
         }
 
-        setError(false);
-        setExpenses(expense);
+        setExpense(expense);
+        setCreateBugdet(true);
         setBudgetForm(initialState);
+        setError(false);
     }
 
     return ( 

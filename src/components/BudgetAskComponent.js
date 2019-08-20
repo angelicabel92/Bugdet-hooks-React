@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import ErrorComponent from './ErrorComponent';
 
-const BugdetAskComponent = ({setBudget, setAskBugdet}) => {
+const BugdetAskComponent = ({setBudget, setAskBugdet, setRestBugdet}) => {
     const [amountBudget, setAmountBudget] = useState(0);
     const [error, setError] = useState(false);
 
@@ -15,6 +15,7 @@ const BugdetAskComponent = ({setBudget, setAskBugdet}) => {
 
         setError(false);
         setBudget(amountBudget);
+        setRestBugdet(amountBudget);
         setAskBugdet(false);
     }
     return (
